@@ -12,7 +12,7 @@
         <!-- Sidebar -->
         <div class="w-64 bg-white shadow-md h-screen">
             <div class="p-4">
-                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <h1 class="text-2xl font-bold">Dashboard Super Admin</h1>
             </div>
             <ul class="mt-6">
                 <li class="hover:bg-gray-200">
@@ -25,7 +25,7 @@
                     <a href="#" class="block py-2 px-4 text-gray-700">Pengaturan</a>
                 </li>
                 <li class="hover:bg-gray-200">
-                    <a href="#" class="block py-2 px-4 text-gray-700">Logout</a>
+                    <a href='logout' class="block py-2 px-4 text-gray-700">Logout</a>
                 </li>
             </ul>
         </div>
@@ -51,6 +51,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>

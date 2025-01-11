@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth; // Perbaikan di sini
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SesiController extends Controller
@@ -37,17 +37,32 @@ class SesiController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
-            // Jika login berhasil, redirect atau lakukan sesuatu
-            return redirect()->intended('dashboard'); // Ganti 'dashboard' dengan rute yang sesuai
+            if(Auth::user()->role == 'superadmin'){
+                return redirect('dashboard/admin');
+            }elseif(Auth::user()->role == 'admin'){
+                return redirect('dashboard/admin');
+            } 
         } else {
-            // Jika login gagal, kembalikan ke halaman login dengan pesan error
             return back()->with(
                 'failed','Incorrect Email and Password.'
             );
         }
     }
 
-    function dashboard(){
-        return view('dashboard');
+    
+
+    function dashboardAdmin(){
+        return view('dashboard-admin'); 
     }
+
+    function logout(){
+        Auth::logout();
+        return redirect('login');
+    }
+
+    function logoutAdmin(){
+        Auth::logout();
+        return redirect('login');
+    }
+    
 }
